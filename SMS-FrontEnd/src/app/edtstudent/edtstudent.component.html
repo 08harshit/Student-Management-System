@@ -1,0 +1,24 @@
+<form [formGroup]="editForm" (ngSubmit)="editStudent()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name" />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email" />
+
+  <label for="DOB">Date of Birth:</label>
+  <input type="text" id="DOB" formControlName="DOB" />
+
+  <label for="branch">Branch:</label>
+  <input type="text" id="branch" formControlName="branch" />
+
+  <label for="semester">Semester:</label>
+  <input type="text" id="semester" formControlName="semester" />
+
+  <label for="photo">Photo:</label>
+  <input type="text" id="photo" formControlName="photo" />
+
+  <label for="id">ID:</label>
+  <input type="text" id="id" formControlName="id" />
+
+  <button type="submit">Edit Student</button>
+</form>

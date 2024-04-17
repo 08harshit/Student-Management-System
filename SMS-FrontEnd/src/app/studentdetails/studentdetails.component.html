@@ -1,0 +1,16 @@
+<div class="student-details">
+  <div class="card">
+    <img class="photo" [src]="student.photo" alt="Student Photo" />
+    <div class="details">
+      <h2>{{ student.name }}</h2>
+      <p>Date of Birth: {{ student.dob }}</p>
+      <p>Semester: {{ student.semester }}</p>
+      <p>Branch: {{ student.branch }}</p>
+      <p>ID: {{ student.id }}</p>
+      <p>Email: {{ student.email }}</p>
+      <button [routerLink]="['students', 'edit', student.id]">Edit</button>
+      <button (click)="deleteStudent()">Delete</button>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
