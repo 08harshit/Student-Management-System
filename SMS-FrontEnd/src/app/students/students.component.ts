@@ -23,16 +23,26 @@ export class StudentsComponent {
   }
 
   fetchStudents() {
-    this.httpClient
-      .get('http://localhost:3000/student', { headers: this.httpHeaders })
-      .subscribe(
-        (response) => {
-          console.log(response);
-          this.students = response;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    // this.httpClient
+    //   .get('http://localhost:3000/student', { headers: this.httpHeaders })
+    //   .subscribe(
+    //     (response) => {
+    //       console.log(response);
+    //       this.students = response;
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
+
+    this.httpClient.get('http://localhost:3000/student').subscribe(
+      (response) => {
+        console.log(response);
+        this.students = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

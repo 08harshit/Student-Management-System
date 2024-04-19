@@ -9,7 +9,7 @@ import { EdtstudentComponent } from './edtstudent/edtstudent.component';
 import { AccessGuard } from './accessguard.service';
 
 export const routes: Routes = [
-  { path: '', component: DashboardComponent, canActivate: [AccessGuard] },
+  { path: '', component: LoginComponent, canActivate: [AccessGuard] },
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard',
