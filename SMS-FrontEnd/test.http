@@ -1,0 +1,5 @@
+POST localhost:3000/admin HTTP/1.1
+
+
+{'email':'jett@gmail.com',
+'password':'pass1234'}

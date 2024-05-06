@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TmplAstIfBlockBranch } from '@angular/compiler';
+
 import { Component } from '@angular/core';
 import {
   FormControl,
@@ -8,6 +8,8 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StudentStore } from '../students/student.store';
+import { Student } from '../students/student.model';
 
 @Component({
   selector: 'app-create-student',
@@ -17,14 +19,18 @@ import { Router } from '@angular/router';
   styleUrl: './create-student.component.css',
 })
 export class CreateStudentComponent {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private studentStore: StudentStore
+  ) {}
 
   studentForm = new FormGroup({
     name: new FormControl(''),
-    DOB: new FormControl(''),
+
     branch: new FormControl(''),
     semester: new FormControl(''),
-    photo: new FormControl(''),
+
     id: new FormControl(''),
     email: new FormControl(''),
   });
@@ -34,12 +40,25 @@ export class CreateStudentComponent {
   });
 
   createStudent() {
+    const formData = this.studentForm.value;
+    const studentData: any = {
+      name: formData.name || '',
+      branch: formData.branch || '',
+      semester: formData.semester || '',
+      id: formData.id || '',
+      email: formData.email || '',
+    };
+
+    // this.studentStore.add([studentData]);
+    // console.log(this.studentStore)
+
     this.httpClient
       .post('http://localhost:3000/student', this.studentForm.value, {
         headers: this.httpHeaders,
       })
       .subscribe(
         (response) => {
+          this.studentStore.add([studentData]);
           console.log(response);
           this.router.navigate(['/dashboard/students']);
         },

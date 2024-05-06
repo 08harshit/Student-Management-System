@@ -1,8 +1,8 @@
 <div class="students-list">
   <h2>Students List</h2>
   <div class="cards-container">
-    <div *ngFor="let student of students" class="card">
-      <img src="{{ student.picture }}" alt="{{ student.name }}" />
+    <div *ngFor="let student of (students$ | async)" class="card">
+      <!-- <img src="{{ student.picture }}" alt="{{ student.name }}" /> -->
       <div class="card-details">
         <strong>Name:</strong> {{ student.name }} <br />
         <strong>Branch:</strong> {{ student.branch }} <br />

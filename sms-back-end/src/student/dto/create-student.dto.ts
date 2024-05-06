@@ -3,7 +3,7 @@ export class CreateStudentDto {
   id: number;
   semester: string;
   email: string;
-  DOB: Date;
+  
   branch: string;
-  photo: Blob;
+  
 }
